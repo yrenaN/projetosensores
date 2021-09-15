@@ -1,24 +1,4 @@
 <!DOCTYPE html>
-<!--
-    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
-
-    Licensed to the Apache Software Foundation (ASF) under one
-    or more contributor license agreements.  See the NOTICE file
-    distributed with this work for additional information
-    regarding copyright ownership.  The ASF licenses this file
-    to you under the Apache License, Version 2.0 (the
-    "License"); you may not use this file except in compliance
-    with the License.  You may obtain a copy of the License at
-
-    http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing,
-    software distributed under the License is distributed on an
-    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-     KIND, either express or implied.  See the License for the
-    specific language governing permissions and limitations
-    under the License.
--->
 <html>
 
 <head>
@@ -26,21 +6,10 @@
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
     <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
-    <!-- Good default declaration:
-    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
-    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
-    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
-        * Enable inline JS: add 'unsafe-inline' to default-src
-        * Enable eval(): add 'unsafe-eval' to default-src
-    * Create your own at http://cspisawesome.com
-    -->
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
 
     <link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.5.min.css" />
     <title>App Sensores</title>
-
     <script type="text/javascript">
         window.onload=function()
         {
@@ -153,17 +122,18 @@
                     novaX=atualX + x;
                     novaY=atualY + y;
 
-                    $("#circulo").offset({left:novaX,top:novaY});
+                    $("#circulo").offset({left:novaX,top:novaY})
                 },true)
             }
             else
             {
                 alert("Recurso não disponível no seu dispositivo!!");
             }
+        }
 
             function sair()
             {
-                navigator.notification.confirm('Deseja sair do aplicativo?', resposta, 'Mensagem',['Não','Sim'])
+                navigator.notification.confirm('Deseja sair do aplicativo?', resposta, 'Mensagem',['Não','Sim']);
             }
 
             function resposta(r)
@@ -172,8 +142,7 @@
                 {
                     navigator.app.exitApp();
                 }
-            }
-        }
+            }        
     </script>
 
     <style>
@@ -219,7 +188,7 @@
     <div data-hole="page" id="hardware">
 
         <div data-hole="header">
-            <h1>Sensores Hardware/Redes</h1>
+            <h1>Sensores Hardware/Rede</h1>
         </div>
 
         <div data-hole="main" id="conteudo" class="ui-content">
@@ -233,7 +202,7 @@
             <button id="btn2" onclick="hardware()">Exibe Hardware</button>
             <button id="btn3" onclick="rede()">Exibe Rede</button>
             <button id="btn4" onclick="bateria()">Exibe Bateria</button>
-            <button id="btn5" onclick="acelerometro()">Exibe Acelerometro</button>
+            <button id="btn5" onclick="acel()">Exibe Acelerometro</button>
             <button id="btn6" onclick="location.href='index.html#principal'">Voltar</button>
 
         </div>
